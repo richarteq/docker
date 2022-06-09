@@ -111,9 +111,10 @@
         - La Terminal: Es la terminal del sistema opeativo como cliente del servidor a través de la API REST. Se usan scripts o comandos. Se puede ejecutar, parar o gestionar los contenedores con el comando docker.
 
     ![Arquitectura Docker](DE-docker-architektur.png)
+    -   Fuente: [Tutorial de Docker: instalar y gestionar la plataforma de contenedores]
 
 
-### Imágenes/Contenedores en Docker
+### Imágenes y Contenedores en Docker
 
 -   Son administradas por Docker-Daemon.
 -   Las imágenes de Docker pueden ser creadas por el usuario a traves de la terminal.
@@ -348,15 +349,14 @@
 
 
 ## EJERCICIO RESUELTO POR EL DOCENTE
--   Crear un contenedor con las siglas del curso y el año actual
+-   Crear un contenedor con las siglas ```mydocker22```
     ```sh
-    docker run -it --name rcd22 ubuntu
+    docker run -it --name mydocker22 ubuntu
     ```
     ```sh
     docker -ps -a
     CONTAINER ID   IMAGE         COMMAND    CREATED              STATUS                          PORTS     NAMES
-    5f934a64ee98   ubuntu        "bash"     About a minute ago   Exited (0) About a minute ago             rcd22
-
+    5f934a64ee98   ubuntu        "bash"     About a minute ago   Exited (0) About a minute ago             mydocker22
     ```
    
 -   Trabaje dentro del contenedor que acaba de crear: 
@@ -383,7 +383,7 @@
         ```  
 -   crear una imagen  a partir de un contenedor:
     ```sh
-    docker commit 5f934a64ee98 rcd22image
+    docker commit 5f934a64ee98 mydocker22
     ```
 
 -   Instale una imagen que ya tenga el servidor Web Apache HTTP Server 2.x y ejecutela en el afitrion en un puerto determinado.
@@ -396,13 +396,21 @@
 
 ## EJERCICIOS PROPUESTOS
 
--   1. Realice los cambios necesarios para que la imagen que ud creo a partir de un contenedor personalizado se pueda acceder al servidor web desde el equipo anfitríon.
-    ```sh
-    docker run -p 8088:80 rcd22image
-    ```
--   2. Crear dos contenedores que puedan comunicarse: ping.
+Especifique paso a paso e incluya el código fuente referenciado en README.md.
 
--   3. Investigar acerca de la ejecución de programas con interfaz gráfica dentro de contenedores Docker.
+1.  Realice los cambios necesarios para que la imagen que ud creo a partir de un contenedor personalizado se pueda acceder al servidor web desde el equipo anfitríon.
+    ```sh
+    docker run -p 8088:80 mydocker22
+    ```
+2.  Crear dos contenedores que puedan comunicarse: ping ?.?.?.?
+
+3.  Investigar acerca de la ejecución de programas con interfaz gráfica dentro de contenedores Docker.
+
+4.  Desplegar los siguientes ejercicios en contenedores docker:
+    -   JavaScript: Escribir un página que reciba el URL de la sesión de google meet de hoy y devuelva el código de la sesión sin guiones separadores.
+    -   NodeJS: Aplicación web que navegue sobre archivos Markdown.
+    -   Python: Dibujar un tablero de Ajedrez.
+    -   Django: Blog sencillo.
 
 #
 
@@ -472,4 +480,3 @@
 [![License][license]][license-file]
 [![Downloads][downloads]][releases]
 [![Last Commit][last-commit]][releases]
-
